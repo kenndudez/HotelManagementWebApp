@@ -1,0 +1,83 @@
+<div class="card col-md-12">
+    <div class="card-body">  
+        <h3> Register New Customer</h3>
+        <hr>
+        <h6>Customer Registration</h6>
+        <p class="card-title-desc">Fill in appropriate information to register new customer</p>
+            <div> 
+            <form [formGroup]="addCustomerForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                   <div class="col-md-4">
+                      <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" formControlName="firstname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" #box3/>
+                            <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                                  <div *ngIf="f.firstname.errors.required">First Name is required</div>
+                            </div>
+                         </div>
+                   </div> 
+                   <div class="col-sm-4">
+                      <div class="form-group">
+                         <label>Last Name</label>
+                         <input type="text" formControlName="lastname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }" #box5/>
+                         <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                            <div *ngIf="f.lastname.errors.required">Last Name is required</div>
+                            
+                         </div>
+                      </div>
+                   </div>
+                   <div class="col-sm-4">
+                    <div class="form-group">
+                       <label>Middle Name</label>
+                       <input type="text" formControlName="middlename" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.middlename.errors }" #box4 />
+                       
+                       </div>
+                    </div>
+                   
+                 </div>
+
+                 <div class="row"> 
+                 <div class="col-sm-4">
+                    <div class="form-group">
+                       <label>Phone Number</label>
+                       <input type="text" formControlName="phonenumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phonenumber.errors }" #box6/>
+                       <div *ngIf="submitted && f.phonenumber.errors" class="invalid-feedback">
+                          <div *ngIf="f.phonenumber.errors.required">Phone Number is required</div>
+                          <div *ngIf="f.phonenumber.errors.email">Phone Number must be a valid phone Number</div>
+                       </div>
+                    </div>
+                 </div>
+
+                 <div class="col-sm-4">
+                    <div class="form-group">
+                       <label>Email Address</label>
+                       <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" #box2/>
+                       <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">Email is required</div>
+                          <div *ngIf="f.email.errors.Email">Email must be a valid email address</div>
+                       </div>
+                    </div>
+                 </div>
+
+                 <div class="col-sm-4">
+                    <div class="form-group">
+                       <label>Contact Address</label>
+                       <input type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" #box1/>
+                       <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                          <div *ngIf="f.address.errors.required">Contact Address is required</div>
+                        
+                       </div>
+                    </div>
+                 </div>
+                </div>
+               <div class="col-md-12 text-center">
+               <button type="submit" class="btn btn-success" (click)="addCustomer(box1.value,box2.value, box3.value, box4.value, box5.value, box6.value )">Submit</button>
+            </div>
+             </form>
+            </div>
+            
+    </div>
+  </div>
+
+
+

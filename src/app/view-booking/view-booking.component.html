@@ -1,0 +1,53 @@
+<div class="card col-md-12">
+    <div class="card-body">
+        <div> 
+        <h3> Hotel Room Booking Details</h3>
+
+        <hr>
+        <h6>All Hotel Room Bookings Details</h6>
+        <button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 mr-2 float-right"
+        [routerLink] = "'/add-booking'"><i class="fa fa-plus"></i> Create Bookings</button>
+        <p class="card-title-desc">Below table shows hotel room bookings details of customers</p>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-centered table-nowrap mb-0">
+                <thead class="thead-light">
+                    <tr>
+                        <th>S/N</th>
+                        <th>Customer Full Name</th>
+                        <th>Customer Phone Number</th>
+                        <th>Room Name</th>
+                        <th>Room Type</th>
+                        <th>Room Price</th>
+                        <th>Check-In Date</th>
+                        <th>Check-Out Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- *ngFor="let booking of bookings$ | async; let i=index" -->
+                            <tr *ngFor="let booking of Bookings; let i = index">
+                                <td>{{i+1}}</td>
+                                <td> {{booking.firstname}} {{booking.middlename}} {{booking.lastname}}</td>
+                                <td>{{booking.phonenumber}}</td>
+                                <td> {{booking.roomname}}</td>
+                                <td>{{booking.roomtype}}</td>
+                                <td>{{booking.roomprice}}</td>
+                                <td>{{booking.checkin}}</td>
+                                <td>{{booking.checkout}}</td>
+                                <td>
+                                    <a>
+                                        <i class="fa fa-eye" title="View" style="color: rgb(24, 83, 244, 83, 24);" ></i>
+                                    </a>
+
+                                    <a>
+                                        <i class="fa fa-edit" title="Edit" style="color:rgb(18, 18, 82)"></i>
+                                    </a>
+                                        <i class="fa fa-trash" title="Delete" style="color:rgb(77, 20, 20)"></i>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>

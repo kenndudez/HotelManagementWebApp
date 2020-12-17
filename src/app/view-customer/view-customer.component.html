@@ -1,0 +1,57 @@
+
+<div class="card col-md-12">
+    <div class="card-body">
+        <div> 
+        <h3> Customer Details</h3>
+
+        <hr>
+        <h6>All Customer Details</h6>
+        <button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 mr-2 float-right"
+        [routerLink] = "'/add-customer'"><i class="fa fa-plus"></i> Add Customer</button>
+        <p class="card-title-desc">Below table shows customers full details</p>
+
+       
+        </div>
+        <div class="table-responsive" >
+            <table class="table table-centered table-nowrap mb-0">
+                <thead class="thead-light">
+                    <tr>
+                        <th>S/N</th>
+                        <th>Full Name</th>
+                        <th>Email Address</th>
+                        <th>Phone Number</th>
+                        <th>Contact Address</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <!-- *ngFor="let customer of customers$ | async; let i=index" -->
+                            <tr *ngFor="let customer of Customers; let i = index">
+                                <td>{{i+1}}</td>
+                                <td> {{customer.firstname}} {{customer.middlename}} {{customer.lastname}}</td>
+                                <td>{{customer.email}}</td>
+                                <td>{{customer.phonenumber}}</td>
+                                <td>{{customer.address}}</td>
+                                
+                                <td>
+                                    <a>
+                                        <i class="fa fa-eye" title="View" style="color: rgb(24, 83, 244, 83, 24);" ></i>
+                                    </a>
+
+                                    <a>
+                                        <i class="fa fa-edit" title="Edit" style="color:rgb(18, 18, 82)"></i>
+                                    </a>
+
+                                        <i class="fa fa-trash" title="Delete" style="color:rgb(77, 20, 20)" (click)="delete(Customers._id, i)"></i>
+                                </td>
+                            </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        
+            
+    </div>
+  </div>
+
+

@@ -1,0 +1,63 @@
+<div class="card col-md-12">
+    <div class="card-body">
+        <div> 
+        <h3> Register New Room</h3>
+
+        <hr>
+        <h6>Room Registration</h6>
+        <p class="card-title-desc">Fill in appropriate information to register new room</p>
+        </div>
+       
+            <div> 
+            <form [formGroup]="addRoomForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                   <div class="col-md-3">
+                      <div class="form-group">
+                            <label>Room Name</label>
+                            <input type="text" formControlName="roomname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.roomname.errors }" #box1 />
+                            <div *ngIf="submitted && f.roomname.errors" class="invalid-feedback">
+                                  <div *ngIf="f.roomname.errors.required">Room Name is required</div>
+                            </div>
+                         </div>
+                   </div> 
+                   <div class="col-sm-3">
+                      <div class="form-group">
+                         <label>Room Number</label>
+                         <input type="number" formControlName="roomnumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.roomnumber.errors }" #box4/>
+                         <div *ngIf="submitted && f.roomnumber.errors" class="invalid-feedback">
+                            <div *ngIf="f.roomnumber.errors.required">Room Number is required</div>
+                            
+                         </div>
+                      </div>
+                   </div>
+                 <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Room Type</label>
+                       <select type="text" formControlName="roomtype" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.roomtype.errors }" #box2>
+                       <option value="">Select Room Type</option>
+                       <option value="1">Diamond Room</option>
+                       <option value="2">Gold Room</option>
+                       </select>
+                       <div *ngIf="submitted && f.roomtype.errors" class="invalid-feedback">
+                          <div *ngIf="f.roomtype.errors.required">Room type is required</div>
+                       </div>
+                    </div>
+                 </div>
+
+                 <div class="col-sm-3">
+                    <div class="form-group">
+                       <label>Room Price</label>
+                       <input type="number" formControlName="roomprice" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.roomprice.errors }" #box3/>
+                       <div *ngIf="submitted && f.roomprice.errors" class="invalid-feedback">
+                          <div *ngIf="f.roomprice.errors.required">Room price is required</div>
+                       </div>
+                    </div>
+                 </div>
+               </div>
+               <div class="col-md-12 text-center">
+               <button type="submit" class="btn btn-success" (click)="addRoom(box1.value,box2.value, box3.value,box4.value)">Submit</button></div>
+             </form>
+            </div>
+            
+    </div>
+  </div>
